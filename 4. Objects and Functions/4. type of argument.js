@@ -1,6 +1,6 @@
 // Write a function for calculating the type of argument and type output to the console
 
-function type_of_arguments() {
+function typeOfArguments() {
   for (let i = 0; i < arguments.length; i++) {
     console.log(typeof arguments[i]);
   }
@@ -13,4 +13,4 @@ let animals = {
   tiger: 4,
 };
 
-type_of_arguments(num, word, animals);
+typeOfArguments(num, word, animals);
