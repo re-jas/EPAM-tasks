@@ -2,12 +2,12 @@
 
 let x = 20;
 for (let i = 2; i < x; i++) {
-  let numIsPrime = true;
+  let isPrime = true;
   for (let j = 2; j < i; j++) {
-    if (i % j == 0) {
-      numIsPrime = false;
+    if (i % j === 0) {
+      isPrime = false;
       break;
     }
   }
-  if (numIsPrime) console.log(i);
+  if (isPrime) console.log(i);
 }
