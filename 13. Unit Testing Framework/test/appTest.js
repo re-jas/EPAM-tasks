@@ -1,4 +1,5 @@
 const assert = require("chai").assert;
+const expect = require("chai").expect;
 const Calculator = require("../app");
 
 describe("Calculator Test", function () {
@@ -20,5 +21,16 @@ describe("Calculator Test", function () {
 
   it("multiplication of several parameters", function () {
     assert.strictEqual(calculator.multiply(35, 78, 21, 13), 745290);
+  });
+
+  it("negative scenario with invalid data type", function () {
+    assert.throws(
+      () => calculator.add(5, "asd", 10),
+      '"asd" should be a number not string'
+    );
+    assert.throws(
+      () => calculator.multiply(1, 3, [5, 7]),
+      '"5,7" should be a number not object'
+    );
   });
 });
