@@ -5,6 +5,7 @@ const CODE = { id: "postform-text" };
 const SYNTAX_HIGHLIGHTING = { id: "select2-postform-format-container" };
 const SYNTAX_HIGHLIGHTING_INPUT = { css: "input.select2-search__field" };
 const PASTE_EXPIRATION = { id: "select2-postform-expiration-container" };
+const PASTE_EXPIRATION_CHOICE = "//ul[@id='select2-postform-expiration-results']/li[contains(text(),'ID')]"
 const PASTE_NAME = { id: "postform-name" };
 const SUBMIT_BUTTON = { css: "button.btn.-big" };
 // Locators for test
@@ -21,14 +22,12 @@ class PastebinPage extends BasePage {
   }
 
   async newPaste(code, syntax, time, pasteName) {
-    await code.forEach((element) => {
-      this.type(CODE, element);
-    });
+    await this.type(CODE, code);
     await this.explicitWait(SYNTAX_HIGHLIGHTING, 10000);
     await this.click(SYNTAX_HIGHLIGHTING);
     await this.type(SYNTAX_HIGHLIGHTING_INPUT, syntax, true);
     await this.click(PASTE_EXPIRATION);
-    await this.click({ xpath: time });
+    await this.click({ xpath: PASTE_EXPIRATION_CHOICE.replace('ID', time) });
     await this.type(PASTE_NAME, pasteName);
     await this.click(SUBMIT_BUTTON);
   }
