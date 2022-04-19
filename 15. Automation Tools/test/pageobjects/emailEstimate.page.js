@@ -1,16 +1,18 @@
-const Estimate = require("./estimate.page");
+const CalculatorPage = require("./calculator.page");
 
-class EmailEstimate extends Estimate {
+class EmailEstimate extends CalculatorPage {
   get emailEstimateButton() {
-    return $("#email_quote");
+    return $('//button[@id="email_quote"]');
   }
 
   get emailAddress() {
-    return $('//input[@id=(//label[contains(text(), "Email")]/@for)]');
+    return $('//input[@type="email"]');
   }
 
   get emailSendButton() {
-    return $("(//button[normalize-space()='Send Email'])[1]");
+    return $(
+      '//md-dialog-actions//button[@class="md-raised md-primary cpc-button md-button md-ink-ripple"]'
+    );
   }
 
   async sendMessage() {

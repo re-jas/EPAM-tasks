@@ -1,12 +1,12 @@
 const EmailEstimate = require("./emailEstimate.page");
 
-class TempMail extends EmailEstimate {
+class TempMailoPage extends EmailEstimate {
   get copyAddress() {
-    return $("//button[@class='iconx']");
+    return $(".iconx");
   }
 
   get refresh() {
-    return $("//div[@class='primaryCommands']//div[2]//button[1]");
+    return $(".prim-btn");
   }
 
   get newMessage() {
@@ -14,13 +14,13 @@ class TempMail extends EmailEstimate {
       "//div[@class='mail-item-sub'][contains(text(),'Google Cloud Price Estimate')]"
     );
   }
-  
+
   get totalCost() {
-    return $("tbody tr td:nth-child(2) h3:nth-child(1)");
+    return $('//tbody//h3[contains(text(), "USD")]');
   }
 
   openMail() {
-    return browser.newWindow(`https://tempmailo.com/`);
+    return browser.newWindow("https://tempmailo.com/");
   }
 
   async receiveMessage() {
@@ -30,9 +30,8 @@ class TempMail extends EmailEstimate {
 
     await browser.switchWindow("google");
     await super.sendMessage();
-
     await browser.switchWindow("tempmailo");
-    await browser.pause(6000);
+    await browser.pause(3000);
     await this.refresh.click();
     await this.newMessage.waitForExist({ timeout: 20000 });
     await this.newMessage.click();
@@ -42,4 +41,4 @@ class TempMail extends EmailEstimate {
   }
 }
 
-module.exports = new TempMail();
+module.exports = TempMailoPage;

@@ -1,6 +1,10 @@
 const Page = require("./page");
 
-class NewPaste extends Page {
+class PastebinPage extends Page {
+  constructor() {
+    super();
+  }
+
   get inputСode() {
     return $("#postform-text");
   }
@@ -40,8 +44,8 @@ class NewPaste extends Page {
   }
 
   open() {
-    return super.open();
+    return super.open("https://pastebin.com");
   }
 }
 
-module.exports = new NewPaste();
+module.exports = PastebinPage;

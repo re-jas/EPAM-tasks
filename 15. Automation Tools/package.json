@@ -1,29 +1,24 @@
 {
-  "name": "wio",
+  "name": "123",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.js --suite iCanWin --suite bringItOn --suite hurtMePlenty --suite hardcore",
-    "icw": "npx wdio wdio.conf.js --suite iCanWin",
-    "bio": "npx wdio wdio.conf.js --suite bringItOn",
-    "hmp": "npx wdio wdio.conf.js --suite hurtMePlenty",
-    "hard": "npx wdio wdio.conf.js --suite hardcore"
+    "test": "npx wdio wdio.conf.js --suite pastebin --suite cloudCalculator",
+    "pastebin": "npx wdio wdio.conf.js --suite pastebin",
+    "gcc": "npx wdio wdio.conf.js --suite cloudCalculator"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wdio/cli": "^7.19.4"
+    "@wdio/cli": "^7.19.5"
   },
   "devDependencies": {
-    "@wdio/allure-reporter": "^7.19.1",
     "@wdio/local-runner": "^7.19.5",
     "@wdio/mocha-framework": "^7.19.5",
     "@wdio/spec-reporter": "^7.19.5",
     "chromedriver": "^100.0.0",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.3",
-    "wdio-chromedriver-service": "^7.3.2",
-    "wdio-geckodriver-service": "^2.1.1"
+    "wdio-chromedriver-service": "^7.3.2"
   }
 }
