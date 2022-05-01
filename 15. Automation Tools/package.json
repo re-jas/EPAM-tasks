@@ -1,0 +1,24 @@
+{
+  "name": "123",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx wdio wdio.conf.js --suite pastebin --suite cloudCalculator",
+    "pastebin": "npx wdio wdio.conf.js --suite pastebin",
+    "gcc": "npx wdio wdio.conf.js --suite cloudCalculator"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^7.19.5"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^7.19.5",
+    "@wdio/mocha-framework": "^7.19.5",
+    "@wdio/spec-reporter": "^7.19.5",
+    "chromedriver": "^100.0.0",
+    "wdio-chromedriver-service": "^7.3.2"
+  }
+}
